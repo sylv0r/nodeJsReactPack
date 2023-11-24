@@ -1,0 +1,273 @@
+{
+	"info": {
+		"_postman_id": "0ee652b2-9507-4ddf-bffd-6f8c03df5816",
+		"name": "starterPack",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29731094"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "postUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"testtest@gmail.com\", \n    \"password\" : \"1Aaaaaaaa1a\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3001/users/postUser"
+					},
+					"response": []
+				},
+				{
+					"name": "getConnection",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseBody = pm.response.json();",
+									"var token = responseBody.token;",
+									"pm.globals.set(\"jwtToken\", token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"testtest@gmail.com\", \n    \"password\" : \"1Aaaaaaaa1a\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3001/users/getConnection"
+					},
+					"response": []
+				},
+				{
+					"name": "verrifyToken",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{jwtToken}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:3001/users/verifyToken"
+					},
+					"response": []
+				},
+				{
+					"name": "getAdmin",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{jwtToken}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:3001/users/getAdmin"
+					},
+					"response": []
+				},
+				{
+					"name": "postAdmin",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{jwtToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/users/patchAdmin?adminOrNot=1&id=36",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"users",
+								"patchAdmin"
+							],
+							"query": [
+								{
+									"key": "adminOrNot",
+									"value": "1"
+								},
+								{
+									"key": "id",
+									"value": "36"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{jwtToken}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:3001/users/getUsers"
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwtToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/users/deleteUser?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"users",
+								"deleteUser"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "data",
+			"item": [
+				{
+					"name": "get data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{jwtToken}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:3001/data/getData"
+					},
+					"response": []
+				},
+				{
+					"name": "post data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{jwtToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"value\" : \"value\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3001/data/postData"
+					},
+					"response": []
+				},
+				{
+					"name": "delete data",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwtToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/data/deleteData?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"data",
+								"deleteData"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
