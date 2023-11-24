@@ -1,0 +1,16 @@
+.divData{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.data{
+    border-style: solid;
+    margin-bottom: 1rem;
+    width: 70%;
+    text-align: left;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+}

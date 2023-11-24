@@ -1,0 +1,11 @@
+.buttonLoginPage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputLogin{
+    width: 50%;
+    height: 2rem;
+    margin: 0.5rem;
+}

@@ -1,0 +1,28 @@
+.event{
+    border: 1px solid #ccc;
+    padding: 1rem;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-left: 39%;
+    font-size: 1.2rem;
+}
+
+.userDiv{
+    border-style: solid;
+    border-color: rgb(165, 116, 42);
+    background-color: rgb(254, 254, 189);
+    margin-bottom: 1rem;
+    width: 70%;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.user{
+    margin: 1rem;
+}
