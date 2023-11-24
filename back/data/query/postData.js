@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
     const user_id = await getDecodedId(req.headers.authorization)
     if (user_id) {
         const {value} = req.body;
-        const result = await con.query2('INSERT INTO data (value, user_id) VALUES (?)',[value, user_id]);
+        const result = await con.query2('INSERT INTO data (user_id, value) VALUES (?)',[user_id, value]);
         if (result) {
             console.log(`[${new Date(Date.now()).toLocaleString()}] - data added`);
             res.status(200).json({ message: "data added" });
