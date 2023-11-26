@@ -4,7 +4,7 @@ const router = Router()
 const cors = require("cors");
 const getConnection = require("./query/getConnection.js");
 const postUser = require("./query/postUser.js");
-const getUser = require("./query/getUser.js");
+const getUsers = require("./query/getUsers.js");
 const deleteUser = require("./query/deleteUser.js");
 const verifyToken = require("./query/verifyConnexion.js")
 const getAdmin = require("./query/getAdmin.js")
@@ -12,7 +12,7 @@ const patchAdmin = require("./query/patchAdmin.js")
 
 router.use(cors());
 router.put('/getConnection', getConnection)
-router.get('/getUsers', getUser)
+router.get('/getUsers', getUsers)
 router.post('/postUser', postUser)
 router.delete('/deleteUser', deleteUser)
 router.get('/verifyToken', verifyToken)
