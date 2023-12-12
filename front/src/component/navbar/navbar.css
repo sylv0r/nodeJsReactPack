@@ -1,21 +1,9 @@
-/* css for this navbar html :
-        <div className='navbar'>
-        <button className='navbar-button' onClick={() => history('/login')}>
-            Login
-        </button>
-        <button className='navbar-button' onClick={() => history('/addallergie')}>
-            Add allergie
-        </button>
-        </div>
-        */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: start;
   flex-direction: row;
-  background-color: rgb(254, 254, 189);
   border-style: solid;
-  border-color: rgb(165, 116, 42);
   border-radius: 1rem;
   margin: 1rem;
   padding: 1rem;
@@ -23,8 +11,6 @@
 
 .navbar-button {
     border-style: solid;
-    border-color: rgb(165, 116, 42);
-    background-color: rgb(254, 254, 189);
     cursor: pointer;
     width: 7rem;
     height: 2rem;

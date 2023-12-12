@@ -14,6 +14,9 @@ export default function Navbar() {
         <button className='navbar-button' onClick={() => history('/')}>
             Home
         </button>
+        <button className='navbar-button' onClick={() => history('/admin')}>
+            Admin
+        </button>
         </div>
     );
     }

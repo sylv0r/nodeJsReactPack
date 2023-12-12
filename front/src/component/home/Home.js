@@ -25,7 +25,7 @@ export default function Home(){
 
     async function getData() {
         try {
-            let url = `http://localhost:3001/your/get`;
+            let url = `http://localhost:3001/data/getData`;
             const response = await fetch(url, {
             method: "GET",
             headers: {
