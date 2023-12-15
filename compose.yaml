@@ -1,6 +1,28 @@
-version: '3.9'
+version: '3.1'
 
 services:
+
+  db:
+    build: ./mariaDb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: my_database
+      MYSQL_USER: my_user
+      MYSQL_PASSWORD: my_password
+    volumes:
+      - "./mariaDb/init.sql:/docker-entrypoint-initdb.d/1.sql"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+
   front:
     build: ./front
     ports:
@@ -8,11 +30,19 @@ services:
     container_name: front
     depends_on:
       - back
+    environment:
+      - REACT_APP_API_URL=http://back:3001
 
   back:
     build: ./back
     ports:
       - "3001:3001"
     container_name: back
-
-
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_USER=my_user
+      - DB_PASSWORD=my_password
+      - DB_DATABASE=my_database
