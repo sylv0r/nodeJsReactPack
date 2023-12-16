@@ -1,7 +1,6 @@
 .DS_STORE
 node_modules
 package-lock.json
-initDb.js
 scripts/flow/*/.flowconfig
 .flowconfig
 *~
@@ -152,7 +151,6 @@ dist
 
 # DynamoDB Local files
 .dynamodb/
-.initDb.js
 
 # TernJS port file
 .tern-port
