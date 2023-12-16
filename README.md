@@ -1,6 +1,6 @@
 # nodeJsReactPack
 
-# Hello this repository is a starterPack for an React NodeJs MySQL app.
+# Hello this repository is a starterPack for an React NodeJs MySQL website
 
 ## You will find all basic pages and endpoints to start your project. All in Docker containers.
 
