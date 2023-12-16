@@ -34,11 +34,13 @@ All bodys and prams examples are in this collection.
 
 go in `front` folder and run :
 ```bash
+npm install
 npm start
 ```
 
 then open a seconde terminal, go in `back` and run :
 ```bash
+npm install
 npm start
 ```
 Dont forget to connect your DB to the back in `back/db/init.js`, or you can use the docker-compose.yml file to run a mariaDb container.
