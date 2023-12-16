@@ -30,19 +30,13 @@ services:
     container_name: front
     depends_on:
       - back
-    environment:
-      - REACT_APP_API_URL=http://back:3001
+    restart: always
 
   back:
     build: ./back
     ports:
       - "3001:3001"
     container_name: back
+    restart: always
     depends_on:
       - db
-    environment:
-      - DB_HOST=db
-      - DB_PORT=3306
-      - DB_USER=my_user
-      - DB_PASSWORD=my_password
-      - DB_DATABASE=my_database

@@ -5,6 +5,7 @@ import Home from './component/home/Home';
 import LoginAndRegister from './component/login/Login';
 import Navbar from './component/navbar/Navbar';
 import AdminPanel from './component/adminPage/AdminPanel';
+import AddData from './component/data/addData/AddData'
 import './index.css'
 const root = ReactDOM.createRoot(
   document.getElementById('root')
@@ -18,6 +19,7 @@ root.render(
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<LoginAndRegister />} />
           <Route path='/admin' element={<AdminPanel />} />
+          <Route path='/data' element={<AddData />} />
         </Routes>
       </div>
     </Router>

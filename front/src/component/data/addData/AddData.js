@@ -1,8 +1,8 @@
-import { useEffect , React, useState } from "react"
-import { useActionData, useNavigate } from 'react-router-dom';
-import "./home.css";
+import { React, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './addData.css';
 
-export default function Home(){
+export default function AddData() {
     const history = useNavigate();
     const [data, setData] = useState([{}]);
 
@@ -15,51 +15,49 @@ export default function Home(){
                }
            })
            .then((res) => {
-            if (res.status !== 200) {
+            if (!res.status === 200) {
                 history("/login");
-            }
-        });
+             }
+           });
          }
 
-    async function getData() {
+    async function postData() {
         try {
-            let url = `http://localhost:3001/data/getData`;
+            let url = `http://localhost:3001/data/postData`;
             const response = await fetch(url, {
-            method: "GET",
+            method: "post",
             headers: {
                 "Content-Type": "application/json",
                 "authorization": sessionStorage.getItem("token")
-            }});
+            },
+            body: JSON.stringify({
+                value: data
+            })
+            });
             if (!response.ok) {
                 history("/login");
                 return;
-            }
-            const data = await response.json();
-            setData(data.reverse());
-            } catch (error) {
-                console.error("Error fetching data:", error);
+            }} catch (error) {
+                console.error("Error posting data:", error);
             }
         }
           
     
     useEffect(() => {
         getConnection();
-        getData();
     }, [])
-
 
     return (
         <div>
             <header>
-                <h1 >Home</h1>
-            </header>                
+                <h1>Add Data</h1>
+            </header>
             <div className='divData'>
-                {data.map((data, index) => (
-                    <div className='data'>
-                        <h3 key={index}>{data.value}</h3>
-                    </div>
-                ))}
+              <textarea className='data-textarea' placeholder='Enter data here' onChange={(e) => setData(e.target.value)}></textarea>
+                <button className='data-button' onClick={() => postData()}>
+                    Add Data
+                </button>
             </div>
         </div>
-    );
+    )
 }

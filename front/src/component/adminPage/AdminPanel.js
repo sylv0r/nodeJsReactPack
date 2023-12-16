@@ -15,9 +15,7 @@ export default function AdminPanel(){
               "authorization" : sessionStorage.getItem("token")
           }})
           .then((res) => {
-          if (res.status === 200) {
-            console.log(res.status);
-          } else {
+          if (!res.status === 200) {
             history("/");
           }
         });
@@ -36,7 +34,6 @@ export default function AdminPanel(){
             return;
           }
           const data = await response.json();
-          console.log(data);
           setUsers(data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -74,8 +71,8 @@ export default function AdminPanel(){
                   <p className="event">{message}</p>
                   <br />
               </header>
-                {users.map((user) => (
-                    <div className='usersDiv'>
+                {users.map((user, index) => (
+                    <div className='usersDiv' key={index}>
                         <h4 className="user">{user.id}</h4>
                         <h5 className="user">{user.email}</h5>
                         <h5 className="user">admin role :{user.admin}</h5>

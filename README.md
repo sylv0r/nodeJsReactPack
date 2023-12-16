@@ -6,7 +6,8 @@
 
 ## Front :
 - Login/Register page 
-- Home page
+- Home page  (get data from the DB)
+- Add data page (post data in the DB)
 - Admin page
 
 ## Back :
@@ -24,6 +25,8 @@
     - data/postData   (post data in the DB)
     - data/deleteData (delete data from the DB)
 
+You have a postman collection in the `postman` folder, you can import it in postman to test the endpoints.
+All bodys and prams examples are in this collection.
 
 # How to start the project :
 
@@ -38,9 +41,11 @@ then open a seconde terminal, go in `back` and run :
 ```bash
 npm start
 ```
+Dont forget to connect your DB to the back in `back/db/init.js`, or you can use the docker-compose.yml file to run a mariaDb container.
 
-## to run with docker :
 
+## to run with docker (run all the project):
+go in the root folder and run :
 ```bash
 docker compose up
 ```
